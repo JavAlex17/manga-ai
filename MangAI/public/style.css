@@ -1,0 +1,297 @@
+:root {
+    --background: #e7d7c9; 
+    --text: #582b11;       
+    --primary: #ff9505;   
+    --primary-hover: #cc5803; 
+    --card-bg: #fdfaf7;     
+    --border-color: #d1c5ba; 
+    
+    --font-main: 'Montserrat', sans-serif;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--background);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 100%;
+    max-width: 750px;
+    margin: 50px auto 40px auto;
+    padding: 0 20px;
+}
+
+
+h1 {
+    color: var(--text);
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.login-header h1{
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: var(--primary-hover);
+    font-weight: 700;
+    font-size: 32px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+#auth-container, #app-container {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(88, 43, 17, 0.15);
+}
+
+.hidden {
+    display: none;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 15px;
+    font-family: var(--font-main);
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 149, 5, 0.3);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.filters label {
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.filters select {
+    width: 100%;
+}
+
+.filters > div {
+    flex: 1;
+    min-width: 200px;
+}
+
+
+
+button {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 18px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button[type="submit"], #auth-action-button {
+    background-color: var(--primary);
+    color: white;
+}
+
+button[type="submit"]:hover, #auth-action-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+#logout-button {
+    background-color: transparent;
+    color: var(--primary);
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border: 1px solid var(--primary);
+}
+
+#logout-button:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.auth-toggle {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.toggle-link {
+    color: var(--primary-hover);
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+#user-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f3ede8;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+
+#loader {
+    text-align: center;
+    padding: 40px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(88, 43, 17, 0.2);
+    border-top: 5px solid var(--primary-hover);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#results-container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.manga-card {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.manga-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(88, 43, 17, 0.1);
+}
+
+.manga-card img {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.manga-card h3 {
+    color: var(--primary-hover);
+    margin-bottom: 10px;
+}
+
+.manga-card p {
+    line-height: 1.6;
+}
+
+.manga-card p strong {
+    color: var(--text);
+}
+
+.login-page main {
+    padding-top: 40px;
+}
+.login-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.login-header h1 {
+    font-size: 48px;
+    color: var(--primary-hover);
+}
+.login-header p {
+    font-size: 20px; 
+    color: var(--text);
+}
+
+
+
+.main-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-bg);
+    padding: 15px 40px;
+    box-shadow: 0 4px 12px rgba(88, 43, 17, 0.1);
+}
+
+.header-title {
+    font-size: 29px;
+    color: var(--primary-hover);
+}
+
+#user-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#user-display-name {
+    font-weight: 700;
+}
+
+
+#greeting-section {
+    padding: 30px 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 30px;
+}
+#greeting-section h2 {
+    text-align: left;
+}

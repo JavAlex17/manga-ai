@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MangAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCUwToLFzt1KNzIa5HWX500yTBr9BHir0A",
+            authDomain: "manga-ai-52951.firebaseapp.com",
+            projectId: "manga-ai-52951",
+            storageBucket: "manga-ai-52951.firebasestorage.app",
+            messagingSenderId: "291531195643",
+            appId: "1:291531195643:web:aa5d3213bbfa0565269c5e",
+            measurementId: "G-YEYCD4D1R4"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="auth.js" defer></script>
+</head>
+<body class="login-page">
+    <main>
+        <header class="login-header">
+            <h1>Bienvenido a MangAI!</h1>
+            <p>Tu IA de confianza para descubrir un nuevo manga o manhwa.</p>
+        </header>
+
+        <div id="auth-container">
+            <h2 id="auth-title">Iniciar Sesión</h2>
+            <form id="auth-form">
+                <input type="text" id="auth-username" placeholder="Nombre de usuario" style="display: none;">
+                <input type="email" id="auth-email" placeholder="Correo electrónico" required>
+                <input type="password" id="auth-password" placeholder="Contraseña" required>
+                <div class="auth-buttons">
+                    <button type="submit" id="auth-action-button">Iniciar Sesión</button>
+                </div>
+            </form>
+            <p id="auth-error" class="error-message hidden"></p>
+            <p id="toggle-to-register-container" class="auth-toggle">
+                ¿No tienes cuenta? <span id="toggle-to-register" class="toggle-link">Regístrate aquí.</span>
+            </p>
+            <p id="toggle-to-login-container" class="auth-toggle hidden">
+                ¿Ya tienes cuenta? <span id="toggle-to-login" class="toggle-link">Inicia sesión.</span>
+            </p>
+        </div>
+    </main>
+</body>
+</html>

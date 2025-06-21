@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MangAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCUwToLFzt1KNzIa5HWX500yTBr9BHir0A",
+            authDomain: "manga-ai-52951.firebaseapp.com",
+            projectId: "manga-ai-52951",
+            storageBucket: "manga-ai-52951.firebasestorage.app",
+            messagingSenderId: "291531195643",
+            appId: "1:291531195643:web:aa5d3213bbfa0565269c5e",
+            measurementId: "G-YEYCD4D1R4"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="auth.js" defer></script>
+    <script src="recommender.js" defer></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <h1 class="header-title">MangAI</h1>
+        <div id="user-actions">
+            <span id="user-display-name"></span>
+            <button id="logout-button">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <main>
+        <div id="greeting-section">
+            <h2 id="user-greeting">¡Hola!</h2>
+            <p>Dime que géneros, películas, series o libros te gustan y te recomendaré un manga.</p>
+        </div>
+
+        <div id="app-container">
+            <form id="recommend-form">
+                <textarea id="user-tastes"
+                    placeholder="Ej: Me gustan los thrillers psicológicos como 'El Silencio de los Inocentes' y la fantasía oscura de 'Berserk'..."
+                    required></textarea>
+                <div class="filters">
+                    <label for="time-filter">Cantidad de capítulos:</label>
+                    <select id="time-filter">
+                        <option value="Cualquiera">Cualquiera</option>
+                        <option value="Poco">Menos de 50</option>
+                        <option value="Medio">Más de 50</option>
+                    </select>
+
+                    <label for="status-filter">¿Emisión o terminado?</label>
+
+                    <select id="status-filter">
+                        <option value="Cualquiera">Cualquiera</option>
+                        <option value="Terminado">Terminado</option>
+                        <option value="En emisión">En emisión</option>
+                    </select>
+                </div>
+                <button type="submit">Obtener Recomendación</button>
+            </form>
+            <div id="loader" class="hidden">
+                <div class="spinner"></div>
+                <p>Analizando tus gustos y buscando en el multiverso del manga...</p>
+            </div>
+        </div>
+        <div id="results-container"></div>
+        </div>
+    </main>
+</body>
+
+</html>
